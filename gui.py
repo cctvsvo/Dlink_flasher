@@ -10,6 +10,8 @@ import sys
 import os
 import serial.tools.list_ports
 from datetime import datetime
+import json
+from pathlib import Path
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,6 +23,11 @@ class DLinkResetGUI:
         self.root = root
         self.root.title("Сброс и прошивка коммутаторов D-Link")
         self.root.geometry("1000x700")
+
+        # --- Пути к папкам ---
+        self.base_dir = Path(__file__).resolve().parent
+        self.config_dir = self.base_dir / "config"
+        self.devices_config_dir = self.config_dir / "devices"
 
         # --- Переменные GUI ---
         self.selected_port = tk.StringVar()
@@ -38,7 +45,7 @@ class DLinkResetGUI:
         # --- Создание виджетов ---
         self.create_widgets()
         self.populate_initial_data()
-        self.update_model_list()
+        # self.update_model_list() # Вызывается из populate_initial_data
 
     def create_widgets(self):
         # --- Заголовок ---
@@ -143,6 +150,8 @@ class DLinkResetGUI:
         self.update_port_list()
         self.vendor_combo['values'] = ["D-Link"]
         self.selected_vendor.set("D-Link")
+        # Обновляем список моделей при запуске
+        self.update_model_list()
 
     def update_port_list(self):
         """Обновляет список доступных COM-портов."""
@@ -158,16 +167,34 @@ class DLinkResetGUI:
 
     def update_model_list(self, vendor="D-Link"):
         """Обновляет список моделей в зависимости от выбранного производителя."""
-        # Заглушка, в реальном проекте можно загружать из конфига
-        model_map = {
-            "D-Link": [
-                "DES-3200-28", "DWS-3160-24TC" # Добавьте остальные поддерживаемые модели
+        models = []
+        if vendor == "D-Link" and self.devices_config_dir.exists():
+            try:
+                for file_path in self.devices_config_dir.iterdir():
+                    if file_path.is_file() and file_path.suffix == '.json':
+                        # Ожидаем имя файла в формате Vendor_Model.json, например, D-Link_DES-3200-28.json
+                        parts = file_path.stem.split('_', 1) # Разделяем только по первому подчеркиванию
+                        if len(parts) == 2 and parts[0] == vendor:
+                            model_name = parts[1]
+                            models.append(model_name)
+            except Exception as e:
+                print(f"Ошибка при загрузке списка моделей: {e}")
+        
+        # Если файлы не найдены, используем жестко заданный список
+        if not models:
+            models = [
+                "DES-3200-28", "DWS-3160-24TC", "DES-3526", "DES-1228",
+                "DES-3028", "DES-3052", "DES-3528", "DGS-1210-24", "DGS-1210-28"
+                # Добавьте другие модели по необходимости
             ]
-        }
-        models = model_map.get(vendor, [])
-        self.model_combo['values'] = models
+            
+        self.model_combo['values'] = sorted(models)
         if models:
-            self.model_combo.set(models[0])
+            # Устанавливаем первую модель по умолчанию или сохраненную
+            if self.selected_model.get() in models:
+                self.model_combo.set(self.selected_model.get())
+            else:
+                self.model_combo.set(models[0])
         else:
             self.model_combo.set("")
 
@@ -204,7 +231,7 @@ class DLinkResetGUI:
                 model=self.selected_model.get(),
                 vendor=self.selected_vendor.get(),
                 force_reflash=self.force_reflash.get(),
-                debug=True,
+                debug=True, # Всегда включаем дебаг для GUI
                 log_queue=self.log_queue
             )
         except Exception as e:
@@ -272,6 +299,7 @@ class DLinkResetGUI:
         self.report_text.config(state='normal')
         self.report_text.delete(1.0, tk.END)
         
+        # ИСПРАВЛЕНО: Проверка на существование report_data
         if not report_data:
             self.report_text.insert(tk.END, "Отчет отсутствует.")
             self.report_text.config(state='disabled')
