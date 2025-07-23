@@ -15,5 +15,57 @@
         {"id": "cli_cmd2", "command": "delete account admin"},
         {"id": "cli_cmd3", "command": "reset config"},
         {"id": "cli_cmd4", "command": "restore default"}
+    ],
+    "recovery_des_35xx": [
+        {"id": "rec_35xx_cmd1", "command": "reset account"},
+        {"id": "rec_35xx_cmd2", "command": "reset config"},
+        {"id": "rec_35xx_cmd3", "command": "reset password"},
+        {"id": "rec_35xx_cmd4", "command": "reset all"}
+    ],
+    "cli_des_35xx": [
+        {"id": "cli_35xx_cmd1", "command": "config account admin password \"\" encrypt none"},
+        {"id": "cli_35xx_cmd2", "command": "delete account admin"},
+        {"id": "cli_35xx_cmd3", "command": "reset config"}
+    ],
+    "recovery_des_12xx": [
+        {"id": "rec_12xx_cmd1", "command": "reset account"},
+        {"id": "rec_12xx_cmd2", "command": "reset config"},
+        {"id": "rec_12xx_cmd3", "command": "reset password"}
+    ],
+    "cli_des_12xx": [
+        {"id": "cli_12xx_cmd1", "command": "config account admin password \"\" encrypt none"},
+        {"id": "cli_12xx_cmd2", "command": "delete account admin"}
+    ],
+    "recovery_des_3200": [
+        {"id": "rec_3200_cmd1", "command": "reset account"},
+        {"id": "rec_3200_cmd2", "command": "reset config"},
+        {"id": "rec_3200_cmd3", "command": "reset password"},
+        {"id": "rec_3200_cmd4", "command": "system_default"}
+    ],
+    "cli_des_3200": [
+        {"id": "cli_3200_cmd1", "command": "config account admin password \"\" encrypt none"},
+        {"id": "cli_3200_cmd2", "command": "delete account admin"},
+        {"id": "cli_3200_cmd3", "command": "reset config"}
+    ],
+    "recovery_dws_3160": [
+        {"id": "rec_dws_cmd1", "command": "reset account"},
+        {"id": "rec_dws_cmd2", "command": "reset config"}
+    ],
+    "cli_dws_3160": [
+        {"id": "cli_dws_cmd1", "command": "config account admin password \"\" encrypt none"}
+    ],
+    "recovery_des_30xx": [
+        {"id": "rec_30xx_cmd1", "command": "reset account"},
+        {"id": "rec_30xx_cmd2", "command": "reset config"}
+    ],
+    "cli_des_30xx": [
+        {"id": "cli_30xx_cmd1", "command": "config account admin password \"\" encrypt none"}
+    ],
+    "recovery_dgs_1210": [
+        {"id": "rec_1210_cmd1", "command": "reset account"},
+        {"id": "rec_1210_cmd2", "command": "reset config"}
+    ],
+    "cli_dgs_1210": [
+        {"id": "cli_1210_cmd1", "command": "config account admin password \"\" encrypt none"}
     ]
 }
