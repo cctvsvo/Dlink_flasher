@@ -1,0 +1,19 @@
+{
+    "recovery": [
+        {"id": "rec_cmd1", "command": "reset account"},
+        {"id": "rec_cmd2", "command": "reset config"},
+        {"id": "rec_cmd3", "command": "reset password"},
+        {"id": "rec_cmd4", "command": "reset all"},
+        {"id": "rec_cmd5", "command": "system_default"},
+        {"id": "rec_cmd6", "command": "restore default"},
+        {"id": "rec_cmd7", "command": "passwd_reset"},
+        {"id": "rec_cmd8", "command": "sys_default"},
+        {"id": "rec_cmd9", "command": "restore_default"}
+    ],
+    "cli": [
+        {"id": "cli_cmd1", "command": "config account admin password \"\" encrypt none"},
+        {"id": "cli_cmd2", "command": "delete account admin"},
+        {"id": "cli_cmd3", "command": "reset config"},
+        {"id": "cli_cmd4", "command": "restore default"}
+    ]
+}
