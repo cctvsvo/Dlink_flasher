@@ -1,0 +1,26 @@
+{
+    "DES-3200-28": {
+        "prom": {
+            "target_version": "1.00.B010",
+            "filename": "DES-3200_PROM_1.00.B010.bin"
+        },
+        "firmware": {
+            "final_version": "4.51.B018",
+            "final_filename": "DES3200_Run_4_51_B018.had",
+            "intermediate_version": "4.38.B000",
+            "intermediate_filename": "DES3200R_4.38.B000.had"
+        }
+    },
+    "DWS-3160-24TC": {
+        "prom": {
+            "target_version": "1.00.B001",
+            "filename": "DWS3160_PROM_1.00.B001.bin"
+        },
+        "firmware": {
+            "final_version": "4.4.1.10.001",
+            "final_filename": "DWS3160_Run_4_4_1_10_001.had",
+            "intermediate_version": "4.4.1.0.001",
+            "intermediate_filename": "DWS3160_Run_4_4_1_0_001.had"
+        }
+    }
+}
