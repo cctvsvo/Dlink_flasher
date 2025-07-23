@@ -1,0 +1,18 @@
+{
+    "baudrate": 9600,
+    "base_model_indicator": "DES-3526",
+    "recovery_combinations": [
+        {"id": "combo_space", "hex": "20", "description": "Space"},
+        {"id": "combo_esc", "hex": "1b", "description": "Esc"},
+        {"id": "combo_ctrl_c", "hex": "03", "description": "Ctrl+C"}
+    ],
+    "boot_menu_combination": "33",
+    "recovery_commands": "recovery_des_35xx",
+    "cli_commands": "cli_des_35xx",
+    "tftp_ip_candidates": ["192.168.1.100", "10.90.90.91"],
+    "post_config_commands": [
+        "enable admin profile",
+        "config serial_port baudrate 9600",
+        "save"
+    ]
+}
