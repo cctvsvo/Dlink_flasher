@@ -56,7 +56,7 @@ class DLinkResetGUI:
         title_label.pack(side=tk.LEFT)
 
         info_label = ttk.Label(header_frame,
-                               text="ПО разработано для нужд Армии России\nБоец с позывным «Душнила»\nПоддержка: @zas_svo",
+                               text="ПО разработано для нужд Армии России\nСделал «Душнила»\nПоддержка: @zas_svo",
                                font=('Arial', 9),
                                foreground='blue', justify=tk.RIGHT)
         info_label.pack(side=tk.RIGHT)
