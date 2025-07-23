@@ -38,7 +38,7 @@ class StatsManager:
         Сортирует список элементов (словарей с ключом 'id') по убыванию успехов.
         Элементы без статистики помещаются в конец.
         """
-        if stat_type not in self.stats_
+        if stat_type not in self.stats_data:
             return items
             
         def sort_key(item):
