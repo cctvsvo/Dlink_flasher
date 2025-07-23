@@ -1,0 +1,18 @@
+{
+    "boot_indicators": ["Starting system", "Press any key to stop auto-boot", "Autobooting in", "System Bootstrap"],
+    "recovery_indicators": ["Password Recovery Mode", "Press any key to login"],
+    "boot_menu_indicators": ["Boot Configuration Menu", "Please Select Boot Method", "Image Option"],
+    "USER_PROMPT": ">",
+    "PRIVILEGED_PROMPT": "#",
+    "LOGIN_PROMPT": "UserName:",
+    "PASSWORD_PROMPT": "Password:",
+    "LOGIN_FAILED_INDICATOR": ["Login failed", "Authentication failed", "Access denied"],
+    "CONFIRM_YN": "(Y/N)",
+    "REBOOTING": "Rebooting...",
+    "SUCCESS_GENERIC": ["Success", "Completed", "OK"],
+    "ERROR_GENERIC": ["Error", "Invalid", "Failed", "Unknown command"],
+    "FIRMWARE_DOWNLOAD_SUCCESS": "Download firmware success",
+    "FIRMWARE_DOWNLOAD_ERROR": ["Download firmware failed", "TFTP timeout", "File not found"],
+    "PING_SUCCESS": ["Received = [1-9]", "Packets: Sent = \\d+, Received = \\d+, Lost = 0"],
+    "PING_FAIL": ["Received = 0", "Destination host unreachable", "Request timed out"]
+}
