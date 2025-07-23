@@ -1,0 +1,9 @@
+{
+    "reboot_wait": 120,
+    "prompt_wait": 15,
+    "login_attempt": 20,
+    "command_default": 30,
+    "firmware_download": 300,
+    "ping_wait": 15,
+    "boot_menu_wait": 60
+}
