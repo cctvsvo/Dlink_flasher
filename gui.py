@@ -272,7 +272,7 @@ class DLinkResetGUI:
         self.report_text.config(state='normal')
         self.report_text.delete(1.0, tk.END)
         
-        if not report_
+        if not report_data:
             self.report_text.insert(tk.END, "Отчет отсутствует.")
             self.report_text.config(state='disabled')
             return
